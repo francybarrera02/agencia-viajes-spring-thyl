@@ -23,66 +23,8 @@ Este proyecto combina una arquitectura limpia basada en MVC (Modelo–Vista–Co
 
 
 ## 📂 Estructura del Proyecto
+![estructuradelproyecto](https://github.com/user-attachments/assets/d156089c-b275-4190-b94f-ae3a71f782b4)
 
-AgenciaViajes
-│
-├── src
-│ ├── main
-│ │ ├── java
-│ │ │ └── uts.edu.java.agencia
-│ │ │ ├── AgenciaViajesApplication.java
-│ │ │ ├── controlador
-│ │ │ │ ├── AcercaDeControlador.java
-│ │ │ │ ├── AppController.java
-│ │ │ │ ├── ClienteControlador.java
-│ │ │ │ ├── DestinoControlador.java
-│ │ │ │ ├── PaqueteControlador.java
-│ │ │ │ └── UsuarioControlador.java
-│ │ │ ├── modelo
-│ │ │ │ ├── Cliente.java
-│ │ │ │ ├── Destino.java
-│ │ │ │ ├── Paquete.java
-│ │ │ │ └── Usuario.java
-│ │ │ ├── repositorio
-│ │ │ │ ├── ClienteRepositorio.java
-│ │ │ │ ├── DestinoRepositorio.java
-│ │ │ │ ├── PaqueteRepositorio.java
-│ │ │ │ └── UsuarioRepositorio.java
-│ │ │ └── servicio
-│ │ │ ├── ClienteServicio.java
-│ │ │ ├── DestinoServicio.java
-│ │ │ ├── IClienteServicio.java
-│ │ │ ├── IDestinoServicio.java
-│ │ │ ├── IPaqueteServicio.java
-│ │ │ ├── IUsuarioServicio.java
-│ │ │ ├── PaqueteServicio.java
-│ │ │ └── UsuarioServicio.java
-│ │ └── resources
-│ │ ├── static
-│ │ │ └── img
-│ │ │ ├── agencia.png
-│ │ │ └── fondo_home.png
-│ │ └── templates
-│ │ └── views
-│ │ ├── acercade
-│ │ │ └── acercade.html
-│ │ ├── clientes
-│ │ │ ├── clientes.html
-│ │ │ ├── editar_cliente.html
-│ │ │ └── nuevo_cliente.html
-│ │ ├── destinos
-│ │ │ ├── destinos.html
-│ │ │ ├── editar_destino.html
-│ │ │ └── nuevo_destino.html
-│ │ ├── paquetes
-│ │ └── usuarios
-│ │ ├── editar_usuario.html
-│ │ ├── nuevo_usuario.html
-│ │ └── usuarios.html
-│ │ └── home.html
-│ └── test
-│
-├── pom.xml
 
 
 ---

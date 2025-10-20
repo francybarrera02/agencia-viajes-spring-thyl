@@ -1,3 +1,127 @@
+# Agencia de Viaje
+
+**Proyecto del Taller de Panel Administrativo**  
+Tecnología de Desarrollos de Sistemas Informáticos  
+📅 II Semestre 2025  
+👨‍🏫 Profesor: Mag. Carlos Adolfo Beltrán Castro  
+👨‍💻 Estudiantes: Francy Paola Barrera Martinez-108765887
+                Albert Jair Jaime Pedraza-
+                Zharick Galviz Vargas-
+                
+  ![menuprincipal](https://github.com/user-attachments/assets/c1d8dfdf-a1ce-4e4d-8bbe-2e6cddd84397)
+              
+Imagen de Pantalla Inicial con Menú del Proyecto
+## 🚀 Descripción del Proyecto
+
+Agencia de Viajes – Sistema de Gestión Web
+
+La Agencia de Viajes es una aplicación web desarrollada en Spring Boot, Thymeleaf y Bootstrap, diseñada para facilitar la administración de una empresa turística.
+El sistema permite gestionar de forma eficiente los destinos turísticos, clientes y usuarios del sistema, brindando una experiencia visual moderna e intuitiva.
+
+A través de su panel de administración, los usuarios pueden registrar, actualizar y eliminar información clave, optimizando los procesos internos de la agencia.
+Este proyecto combina una arquitectura limpia basada en MVC (Modelo–Vista–Controlador), una interfaz adaptable y efectos visuales modernos, ofreciendo una plataforma sólida, escalable y atractiva.
+
+
+## 📂 Estructura del Proyecto
+
+AgenciaViajes
+│
+├── src
+│ ├── main
+│ │ ├── java
+│ │ │ └── uts.edu.java.agencia
+│ │ │ ├── AgenciaViajesApplication.java
+│ │ │ ├── controlador
+│ │ │ │ ├── AcercaDeControlador.java
+│ │ │ │ ├── AppController.java
+│ │ │ │ ├── ClienteControlador.java
+│ │ │ │ ├── DestinoControlador.java
+│ │ │ │ ├── PaqueteControlador.java
+│ │ │ │ └── UsuarioControlador.java
+│ │ │ ├── modelo
+│ │ │ │ ├── Cliente.java
+│ │ │ │ ├── Destino.java
+│ │ │ │ ├── Paquete.java
+│ │ │ │ └── Usuario.java
+│ │ │ ├── repositorio
+│ │ │ │ ├── ClienteRepositorio.java
+│ │ │ │ ├── DestinoRepositorio.java
+│ │ │ │ ├── PaqueteRepositorio.java
+│ │ │ │ └── UsuarioRepositorio.java
+│ │ │ └── servicio
+│ │ │ ├── ClienteServicio.java
+│ │ │ ├── DestinoServicio.java
+│ │ │ ├── IClienteServicio.java
+│ │ │ ├── IDestinoServicio.java
+│ │ │ ├── IPaqueteServicio.java
+│ │ │ ├── IUsuarioServicio.java
+│ │ │ ├── PaqueteServicio.java
+│ │ │ └── UsuarioServicio.java
+│ │ └── resources
+│ │ ├── static
+│ │ │ └── img
+│ │ │ ├── agencia.png
+│ │ │ └── fondo_home.png
+│ │ └── templates
+│ │ └── views
+│ │ ├── acercade
+│ │ │ └── acercade.html
+│ │ ├── clientes
+│ │ │ ├── clientes.html
+│ │ │ ├── editar_cliente.html
+│ │ │ └── nuevo_cliente.html
+│ │ ├── destinos
+│ │ │ ├── destinos.html
+│ │ │ ├── editar_destino.html
+│ │ │ └── nuevo_destino.html
+│ │ ├── paquetes
+│ │ └── usuarios
+│ │ ├── editar_usuario.html
+│ │ ├── nuevo_usuario.html
+│ │ └── usuarios.html
+│ │ └── home.html
+│ └── test
+│
+├── pom.xml
+
+
+---
+
+## ⚙️ Tecnologías Utilizadas
+
+- **Java 17**
+- **Spring Boot 3**
+- **Thymeleaf**
+- **Bootstrap 5**
+- **HTML5 / CSS3**
+- **Maven**
+- **Spring Data JPA**
+
+---
+
+## 🚀 Instrucciones de Ejecución
+
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/francybarrera02/agencia-viajes-spring-thyl.git
+
+✨ Funcionalidades Principales
+
+Gestión de Clientes: registrar, editar y eliminar clientes.
+Gestión de Destinos: administrar destinos turísticos con información detallada.
+Gestión de Usuarios: control de acceso y mantenimiento de usuarios.
+Interfaz moderna: diseño adaptado con imágenes, transparencias y fondo institucional.
+Sección "Acerca de": descripción visual del sistema con créditos y derechos reservados.
+
+🔮 Futuras Mejoras
+
+Módulo de reservas de paquetes turísticos.
+Autenticación y roles de usuario (administrador, agente, cliente).
+Reportes PDF y estadísticas de destinos más visitados.
+Integración con pasarelas de pago.
+Panel de control con gráficas dinámicas.
+
+
 # Agencia de Viajes - Proyecto Spring Boot
 
 Proyecto académico desarrollado con:
@@ -107,5 +231,9 @@ SELECT c.id, p.id, 'CONFIRMADA', 2
 FROM clientes c
 JOIN paquetes p ON p.titulo = 'Cartagena 3 noches'
 WHERE c.dni = '12345678';
+
+![diagrama](https://github.com/user-attachments/assets/5dfc4077-266f-4afc-a808-78550ea2943c)
+
+
 
 COMMIT;

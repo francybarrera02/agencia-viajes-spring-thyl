@@ -2,7 +2,7 @@
 
 **Proyecto del Taller de Panel Administrativo**  
 Tecnología de Desarrollos de Sistemas Informáticos  
-📅 II Semestre 2025  
+📅 III Semestre 2025  
 👨‍🏫 Profesor: Mag. Carlos Adolfo Beltrán Castro  
 👨‍💻 Estudiantes: Francy Paola Barrera Martinez-108765887
                 Albert Jair Jaime Pedraza-

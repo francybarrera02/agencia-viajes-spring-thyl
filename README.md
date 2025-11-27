@@ -25,9 +25,17 @@ El sistema permite gestionar de forma eficiente los destinos turísticos, client
 A través de su panel de administración, los usuarios pueden registrar, actualizar y eliminar información clave, optimizando los procesos internos de la agencia.
 Este proyecto combina una arquitectura limpia basada en MVC (Modelo–Vista–Controlador), una interfaz adaptable y efectos visuales modernos, ofreciendo una plataforma sólida, escalable y atractiva.
 
+El sistema permite administrar:
+
+- Destinos turísticos  
+- Clientes  
+- Usuarios  
+- Paquetes turísticos  
+- Reservas (módulo en desarrollo) 
 
 ## 📂 Estructura del Proyecto
-![estructuradelproyecto](https://github.com/user-attachments/assets/d156089c-b275-4190-b94f-ae3a71f782b4)
+<img width="413" height="777" alt="image" src="https://github.com/user-attachments/assets/69f78c65-db69-4139-bbd7-0aed485ed795" />
+
 
 
 
@@ -42,6 +50,8 @@ Este proyecto combina una arquitectura limpia basada en MVC (Modelo–Vista–Co
 - **HTML5 / CSS3**
 - **Maven**
 - **Spring Data JPA**
+- **MySQL**
+- **Spring Security (en proceso)**
 
 ---
 
@@ -53,19 +63,21 @@ Este proyecto combina una arquitectura limpia basada en MVC (Modelo–Vista–Co
 
 ✨ Funcionalidades Principales
 
-Gestión de Clientes: registrar, editar y eliminar clientes.
-Gestión de Destinos: administrar destinos turísticos con información detallada.
-Gestión de Usuarios: control de acceso y mantenimiento de usuarios.
-Interfaz moderna: diseño adaptado con imágenes, transparencias y fondo institucional.
-Sección "Acerca de": descripción visual del sistema con créditos y derechos reservados.
+Gestión de Destinos: creación, edición, listado y eliminación de destinos turísticos.
+Gestión de Usuarios: administración de cuentas internas para el sistema.
+Gestión de Clientes: registro, actualización y eliminación de clientes.
+Gestión de Paquetes: módulo para administrar paquetes turísticos.
+Gestión de Reservas: registro y control de reservas realizadas.
+Interfaz Moderna: diseño visual con tarjetas de colores, transparencias y fondo institucional.
+Sección “Acerca de”: visualización de información del sistema, créditos y derechos reservados.
 
-🔮 Futuras Mejoras
+Futuras Mejoras
 
-Módulo de reservas de paquetes turísticos.
-Autenticación y roles de usuario (administrador, agente, cliente).
-Reportes PDF y estadísticas de destinos más visitados.
+Implementación avanzada del módulo de reservas de paquetes turísticos.
+Sistema de roles y autenticación (administrador, agente y cliente).
+Generación de reportes PDF y estadísticas de destinos más visitados.
 Integración con pasarelas de pago.
-Panel de control con gráficas dinámicas.
+Dashboard con gráficas dinámicas e interactivas.
 
 
 # Agencia de Viajes - Proyecto Spring Boot
@@ -75,6 +87,8 @@ Proyecto académico desarrollado con:
 - Thymeleaf
 - MySQL
 - Bootstrap 5
+- pring Security (en proceso)
+
 
 ## Configuración
 1. Crea la base de datos en MySQL:

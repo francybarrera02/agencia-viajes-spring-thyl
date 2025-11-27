@@ -7,10 +7,14 @@ Tecnología de Desarrollos de Sistemas Informáticos
 👨‍💻 Estudiantes: Francy Paola Barrera Martinez-108765887
                 Albert Jair Jaime Pedraza-
                 Zharick Galviz Vargas-
-                
-  ![menuprincipal](https://github.com/user-attachments/assets/c1d8dfdf-a1ce-4e4d-8bbe-2e6cddd84397)
+
+imagen de inicio de sesión
+ <img width="1275" height="662" alt="image" src="https://github.com/user-attachments/assets/6fc425f2-9fca-4fa3-aae7-add14be1ee9a" />
+
+Imagen de Pantalla Inicial con Menú del Proyecto         
+<img width="1914" height="632" alt="image" src="https://github.com/user-attachments/assets/007da1b1-08ec-473c-8d67-67c59ea8a4d0" />
+
               
-Imagen de Pantalla Inicial con Menú del Proyecto
 ## 🚀 Descripción del Proyecto
 
 Agencia de Viajes – Sistema de Gestión Web
@@ -74,7 +78,7 @@ Proyecto académico desarrollado con:
 
 ## Configuración
 1. Crea la base de datos en MySQL:
- -- Crear base de datos
+-- Crear base de datos
 CREATE DATABASE agencia_viajes CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE agencia_viajes;
 
@@ -120,29 +124,15 @@ CREATE TABLE paquetes (
   titulo VARCHAR(200) NOT NULL,
   descripcion TEXT,
   precio DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-  destino_id CHAR(36),
+  id_destino CHAR(36),
   disponibilidad INT DEFAULT 0,
-  FOREIGN KEY (destino_id) REFERENCES destinos(id) ON DELETE SET NULL
-);
-
--- ==============================================
--- TABLA: reservas
--- ==============================================
-CREATE TABLE reservas (
-  id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
-  cliente_id CHAR(36),
-  paquete_id CHAR(36),
-  fecha_reserva TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  estado ENUM('PENDIENTE', 'CONFIRMADA', 'CANCELADA') DEFAULT 'PENDIENTE',
-  cantidad_personas INT DEFAULT 1,
-  FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE,
-  FOREIGN KEY (paquete_id) REFERENCES paquetes(id) ON DELETE SET NULL
+  FOREIGN KEY (id_destino) REFERENCES destinos(id) ON DELETE SET NULL
 );
 
 -- ==============================================
 -- DATOS DE EJEMPLO
 -- ==============================================
-select * from usuarios u ;
+
 INSERT INTO usuarios (nombre, email, password_hash, rol) VALUES
 ('Admin Demo', 'admin@demo.com', 'hash_demo_admin', 'ADMIN'),
 ('Agente Demo', 'agente@demo.com', 'hash_demo_agente', 'AGENTE'),
@@ -150,7 +140,7 @@ INSERT INTO usuarios (nombre, email, password_hash, rol) VALUES
 
 -- Insertar cliente asociado al usuario 'cliente@demo.com'
 INSERT INTO clientes (usuario_id, dni, telefono, direccion)
-SELECT id, '12345678', '+57-300-0000000', 'Calle Falsa 123'
+SELECT id, '12345678', '‪+57-300-0000000‬', 'Calle Falsa 123'
 FROM usuarios WHERE email = 'cliente@demo.com';
 
 -- Insertar destinos
@@ -159,22 +149,62 @@ INSERT INTO destinos (nombre, pais, descripcion) VALUES
 ('Quito', 'Ecuador', 'Capital histórica andina');
 
 -- Insertar paquetes
-INSERT INTO paquetes (titulo, descripcion, precio, destino_id, disponibilidad)
+INSERT INTO paquetes (titulo, descripcion, precio, id_destino, disponibilidad)
 SELECT 'Cartagena 3 noches', 'Paquete todo incluido a Cartagena', 450.00, d.id, 20
 FROM destinos d WHERE d.nombre = 'Cartagena';
 
-INSERT INTO paquetes (titulo, descripcion, precio, destino_id, disponibilidad)
+INSERT INTO paquetes (titulo, descripcion, precio, id_destino, disponibilidad)
 SELECT 'Quito City Break', 'Escapada de 2 noches en Quito', 300.00, d.id, 15
 FROM destinos d WHERE d.nombre = 'Quito';
 
--- Insertar reserva asociada al cliente y paquete
-INSERT INTO reservas (cliente_id, paquete_id, estado, cantidad_personas)
-SELECT c.id, p.id, 'CONFIRMADA', 2
-FROM clientes c
-JOIN paquetes p ON p.titulo = 'Cartagena 3 noches'
-WHERE c.dni = '12345678';
 
-![diagrama](https://github.com/user-attachments/assets/5dfc4077-266f-4afc-a808-78550ea2943c)
+INSERT INTO reservas 
+(id, cliente_id, paquete_id, fecha_reserva, fecha_viaje, estado, cantidad_personas)
+VALUES
+(UUID(), 
+ '1a2b3c4d-5678-90ef-abcd-123456789000', 
+ '9f8e7d6c-5432-10ab-cdef-001122334455',
+ NOW(),
+ '2025-02-15',
+ 'CONFIRMADA',
+ 2);
+
+select * from usuarios u ;
+select * from reservas;
+
+ALTER TABLE reservas
+ADD COLUMN total DECIMAL(10,2) NOT NULL DEFAULT 0;
+
+DROP TABLE IF EXISTS reservas;
+
+CREATE TABLE reservas (
+  id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
+  
+  -- 1. id del usuario (vinculado a clientes)
+  cliente_id CHAR(36) NOT NULL, 
+  
+  -- 2. Paquete
+  paquete_id CHAR(36) NOT NULL, 
+  
+  fecha_reserva TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  fecha_viaje DATE, -- Campo opcional para especificar la fecha del viaje
+  
+  -- Estado ajustado para la compra inmediata
+  -- El estado por defecto será 'PAGADA' ya que es un módulo de "Compra"
+  estado ENUM('PENDIENTE', 'CONFIRMADA', 'CANCELADA', 'PAGADA') DEFAULT 'PAGADA', 
+  
+  -- 3. Cantidad de personas (para descuento y cálculo)
+  cantidad_personas INT NOT NULL DEFAULT 1, 
+  
+  -- 4. Total a pagar (Precio * Personas)
+  total DECIMAL(10,2) NOT NULL, 
+  
+  -- Foreign Keys
+  FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE,
+  FOREIGN KEY (paquete_id) REFERENCES paquetes(id) ON DELETE RESTRICT -- Recomendado: no permitir eliminar un paquete si tiene ventas
+);
+<img width="680" height="494" alt="image" src="https://github.com/user-attachments/assets/40e1ab43-0935-44b6-8824-7bda41309202" />
+
 
 
 
